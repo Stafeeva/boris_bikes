@@ -44,4 +44,12 @@ describe DockingStation do
     end
   end
 
+  describe '#dock' do
+    it 'should ....' do
+      station = DockingStation.new(10)
+      10.times { station.dock(Bike.new) }
+      expect { station.dock(Bike.new) }.to raise_error("The docking station is full!")
+    end
+  end
+
 end
