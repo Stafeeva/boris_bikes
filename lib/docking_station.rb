@@ -14,8 +14,14 @@ class DockingStation
   end
 
   def dock(bike)
-    fail "There docking station is full!" if @bikes.count == 20
+    fail "There docking station is full!" if full?
     @bikes << bike
+  end
+
+  private
+
+  def full?
+    @bikes.count == 20
   end
 
 end
