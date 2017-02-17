@@ -13,7 +13,13 @@ class DockingStation
 
   def release_bike
    fail 'There are no more bikes!' if empty?
-   @bikes[0]
+   give_working_bike
+  end
+
+  def give_working_bike
+    working_bike = @bikes.select(&:working)[0]
+    @bikes.delete(working_bike)
+    working_bike
   end
 
   def dock(bike)
