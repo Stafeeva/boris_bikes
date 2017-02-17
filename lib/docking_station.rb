@@ -9,7 +9,7 @@ class DockingStation
   end
 
   def release_bike
-   fail 'There are no more bikes!' if @bikes == []
+   fail 'There are no more bikes!' if empty?
    @bikes[0]
   end
 
@@ -19,6 +19,10 @@ class DockingStation
   end
 
   private
+
+  def empty?
+    @bikes == []
+  end
 
   def full?
     @bikes.count == 20
