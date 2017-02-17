@@ -1,6 +1,5 @@
 require 'docking_station'
 
-
 describe DockingStation do
 
   describe '#release_bike' do
@@ -40,11 +39,8 @@ describe DockingStation do
 
   describe '#dock' do
     it "raises an error when there is already docked bike" do
-      # bike_one = Bike.new
-      # subject.dock(bike_one)
-      # bike_two = Bike.new
-      20.times {subject.dock(Bike.new)}
-      expect { subject.dock(Bike.new) }.to raise_error("There docking station is full!")
+      DockingStation::DEFAULT_CAPACITY.times {subject.dock(Bike.new)}
+      expect { subject.dock(Bike.new) }.to raise_error("The docking station is full!")
     end
   end
 
